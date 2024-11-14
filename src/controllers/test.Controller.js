@@ -5,7 +5,7 @@ const FASTAPI_URL = process.env.FASTAPI_URL;
 
 const getResponse = asyncHandler(async (req, res) => {
   const { prompt } = req.body;
-
+  console.log(prompt);
   if (!prompt || typeof prompt !== "string") {
     return res
       .status(400)
@@ -36,6 +36,7 @@ const getResponse = asyncHandler(async (req, res) => {
     });
 
     const { response, confidence, intent_tag } = responseFromChatbot.data;
+    console.log(response);
 
     return res
       .status(200)
